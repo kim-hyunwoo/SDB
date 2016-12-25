@@ -33,10 +33,8 @@ def print(a):
   print a
 ```
 
-\```
-
+\```(프로그래밍언어: python)
 codes
-
 \`\`\`
 
 
