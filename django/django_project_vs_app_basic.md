@@ -1,6 +1,7 @@
 # Django Projects vs. Apps
 
 Project : Pinterest
+
 App : pinterest.com, blog.pinterest.com, careers.pinterest.com
 
 하나의 프로젝트 안에서 개별 앱 형식으로 동작한다.
