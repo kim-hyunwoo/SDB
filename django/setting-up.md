@@ -1,6 +1,6 @@
 # Django Start-kit
 
-### Django의 구조
+## Django의 구조
 
 MVC가 아닌 MTV 구조. Template(View), View(Controller), Model의 구조를 가진다.
 
@@ -9,10 +9,10 @@ MVC가 아닌 MTV 구조. Template(View), View(Controller), Model의 구조를 �
 3. Model : 데이터 저장 및 처리
 4. Template(View) : HTML 렌더링
 
-### 세팅
+## 세팅
 
 
-#### virtualenv
+### virtualenv
 
 ```
 $ pip install virtualenv
@@ -39,7 +39,7 @@ $ pip freeze
 ```
 
 
-#### 프로젝트 생성
+### 프로젝트 생성
 
 ```
 $ django-admin startproject Project_Name
@@ -48,7 +48,7 @@ $ deactivate
 ```
 
 
-#### refer
+### refer
 [virtualenv doc](https://virtualenv.pypa.io/en/stable/)
 
 
