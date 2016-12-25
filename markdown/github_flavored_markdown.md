@@ -68,9 +68,7 @@ you can create nested lists by indenting lines by two spaces.
 ```
 
 ##### Task lists
-[x] Finish
-[ ] Not yet
-[ ] Not yet
+:kissing_heart:
 
 
 
