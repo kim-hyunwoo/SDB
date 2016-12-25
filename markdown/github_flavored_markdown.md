@@ -67,8 +67,16 @@ you can create nested lists by indenting lines by two spaces.
     * make the heading bigger
 ```
 
-##### Task lists
-:kissing_heart:
+##### Paragraphs and line breaks
+
+you can create a new paragraph by leaving a blank line between lines of text.
+
+##### image
+\!\[ ]( )
+![A representation of Octdrey Catburn](http://octodex.github.com/images/octdrey-catburn.jpg)
+
+##### reference
+[Markdown Tutorial](http://www.markdowntutorial.com/)
 
 
 
