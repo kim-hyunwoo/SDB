@@ -12,7 +12,7 @@ MVC가 아닌 MTV 구조. Template(View), View(Controller), Model의 구조를 �
 ### 세팅
 
 
-##### virtualenv
+#### virtualenv
 
 ```
 $ pip install virtualenv
@@ -39,7 +39,7 @@ $ pip freeze
 ```
 
 
-##### 프로젝트 생성
+#### 프로젝트 생성
 
 ```
 $ django-admin startproject Project_Name
@@ -48,7 +48,7 @@ $ deactivate
 ```
 
 
-##### refer
+#### refer
 [virtualenv doc](https://virtualenv.pypa.io/en/stable/)
 
 
