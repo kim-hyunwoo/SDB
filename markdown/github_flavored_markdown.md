@@ -40,12 +40,32 @@ codes
 \`\`\`
 
 ##### Links
-[GitHub](https://github.com)
+This is Link : [GitHub](https://github.com)
+```
+[page_name] + (url)
+```
 
-[ ]
+##### Lists
+- A
+- B
+- C
 
 
-
+1. Apple
+  1. sugar
+  2. brown
+    * make the heading bigger
+    
+```
+- A
+- B
+- C
+you can create nested lists by indenting lines by two spaces.
+1. Apple
+  1. sugar
+  2. brown
+    * make the heading bigger
+```
 
 
 
