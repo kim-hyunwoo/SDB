@@ -13,7 +13,7 @@ setting.py에 INSATALLED_APPS에 main_app을 정의함.
 
 ```python
 INSTALLED_APPS = [
-    ‘main_app’,
+    'main_app',
 
     'django.contrib.admin',
     'django.contrib.auth',
