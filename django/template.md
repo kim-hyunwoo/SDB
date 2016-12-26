@@ -1,4 +1,4 @@
-# Teplate
+# Template
 
 ## 과정
 
