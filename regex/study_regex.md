@@ -2,7 +2,10 @@
 
 정규식은 문자열에서 문자 조합에 일치 시키기 위해 사용되는 패턴. 자바스크립트에서, 정규식 또한 객체이다.
 
-[regex_doc](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D)
+## 참고문헌
+
+1. [mozilla 가이드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/%EC%A0%95%EA%B7%9C%EC%8B%9D)
+2. ⟪손에 잡히는 정규표현식⟫. 벤포터 저. 인사이트 출판사. 2014년.
 
 # 정규식 만들기
 
