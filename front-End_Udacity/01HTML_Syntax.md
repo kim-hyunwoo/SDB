@@ -21,4 +21,4 @@ content belongs to the paragraph
 
 ## Trees
 
-![html_tree01](https://github.com/khw1031/Assets/blob/master/udacity_frontend/html_tree01.png?raw=true)
+<img src="https://github.com/khw1031/Assets/blob/master/udacity_frontend/html_tree01.png?raw=true" width="50%">
