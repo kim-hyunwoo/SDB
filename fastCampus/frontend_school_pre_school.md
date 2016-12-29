@@ -1,0 +1,273 @@
+# FrontEnd Pre-School
+
+## 16-12-28 3차 강의
+
+### 함수를 만드는 여러가지 방법
+
+\1.생성자 사용
+```javascript
+var func = new Function('value', 'return result');
+```
+
+\2.리터럴 방식
+```javascript
+function func(value) {
+  return result;
+}
+```
+
+\3.익명함수
+```javascript
+var func = function(value) {
+  return result;
+}
+```
+
+\4.즉시 실행 함수(IIFE:Immediately Invoked Function Expressions)
+```javascript
+(function(value)){
+  return result;
+})();
+```
+
+
+### 함수 안에서 또 함수를 만들 수 있다.
+
+```javascript
+function outer() { 
+  function inner(someone) { 
+      console.log('hi ' + someone); 
+    } 
+    return inner('there'); 
+  }
+
+outer(); //hi there
+```
+
+### 유효 범위(Scope)
+
+Scope는 크게 두 가지다. Global Scope, Local Scope
+```javascript
+// 전체 코드가 global 변수의 Scope에 속한다.(Global Scope)
+var global = "global";
+
+// localA 변수의 Scope는 scopeA 함수로 한전된다.(Local Scope)
+function scopeA(param) {
+  var localA = "localA";
+
+  function scopeB() {
+    var localB = "localB";
+      fucntion () {
+        var localC = "localC";
+      }
+  }
+}
+
+```
+
+### JavaScript 유효범위의 특징
+
+1. 함수 단위의 유효 범위
+2. 변수명 중복 허용
+3. var 키워드의 생략
+4. 렉시컬 특성
+
+\1. 함수 단위의 유효범위
+
+다른 프로그래밍 언어는 유효 범위의 단위가 블록 단위이기 때문에 if문, for문으로 인해 생긴 블록 밖의 범위에서는 그 안에서 선언된 변수를 참조할 수 없다. 하지만 **자바스크립트의 유효 범위는 함수 단위이기 때문에 var a, b, c 모두 같은 유효 범위를 갖는다**. 
+
+```javascript
+function scopeTest() {
+  var a = 0;
+  if(true) {
+    var b = 0;
+    for (var c = 0; c < 5; c++) {
+      console.log(`c = ${c}`);
+    }
+  }
+  console.log(`b = ${b}`);
+}
+
+scopeTest();
+//c = 0
+//c = 1
+//c = 2
+//c = 3
+//c = 4
+//b = 0 if문의 블록 밖에서 if문 블록 안의 변수를 참조.
+```
+
+\2. 변수명 중복
+
+자바스크립트는 변수명이 중복되어도 에러가 나지 않는다. 다만 가장 가까운 범위의 변수를 참조한다.
+```javascript
+var scope = 10;
+function scopeExam() {
+  var scope = 20;
+  console.log(`scope = ${scope}`);
+}
+scopeExam(); //scope = 20
+```
+
+\3. var 키워드의 생략
+
+var 키워드를 생략해도 에러가 발생하지 않지만, **전역 변수로 선언** 된다. 
+
+```javascript
+function scopeExam() {
+  scope = 20;
+  console.log(`scope = ${scope}`);
+}
+
+function scopeExam2() {
+  console.log(scope);
+}
+
+scopeExam(); //scope = 20
+scopeExam2(); //20 전역변수로 선언된 scope를 참조한다.
+```
+
+\4. 렉시컬 특성
+
+함수 실행 시 유효범위를 함수 실행 환경이 아닌 함수 정의 환경으로 참조하는 특성.
+
+```javascript
+function f1() {
+  var a = 10;
+  f2();
+}
+
+function f2() {
+  return console.log("호출 실행");
+}
+f1(); // 호출 실행
+```
+
+```javascript
+function f1() {
+  var a = 10;
+  f2();
+}
+
+function f2() {
+  return a;
+}
+f1(); // ReferenceError
+```
+
+렉시컬 특성으로 인해서 함수 f2가 실행될 때가 아닌 정의 될 때의 환경을 보기 때문에 참조하려는 a라는 변수를 찾을 수 없다.
+
+### 호이스팅(Hoisting)
+
+자바스크립트에서 변수와 함수의 선언은 Scope의 최상단으로 끌어올려진다. 
+
+```javascript
+
+function hoistingExam() {
+  //var value; (hoisting)
+  console.log("value = " + value); // undefined
+  //value = 10;
+  var value = 10;
+  console.log("value = " + value); // 10
+}
+
+hoistingExam();
+```
+
+value의 첫 호출에서 전역변수가 참조되는 것이 아니라. 호이스팅으로 인해 지역변수가 위로 끌어올려져서 참조된다.
+
+```javascript
+var value = 30;
+function hoistingExam() {
+  //var value; (hoisting)
+  console.log("value = " + value); // undefined
+  //value = 10;
+  var value = 10;
+  console.log("value = " + value); // 10
+}
+
+hoistingExam();
+```
+
+함수의 경우 **여러 가지 함수 정의 방법 중 함수 선언문 방식만 호이스팅이 가능** 하다.
+
+```javascript
+//함수 선언문
+
+// 함수가 호이스팅 된다.
+hoistingExam();
+function hoistingExam() {
+  var hoistVal = 10;
+  console.log(`hoistVal = ${hoistVal}`); // hoistVal = 10;
+}
+
+함수 표현식
+
+hoistingExam2();
+var hoistingExam2 = function() {
+  var hoistVal = 10;
+  console.log(`hoistVal = ${hoistVal}`); // TypeError: hoistingExam2 is not a function
+}
+
+//Function 생성자
+
+hoistingExam3();
+var hoistingExam3 = new Function("", "return console.log(10);"); //TypeError: hoistingExam3 is not a function
+```
+
+### 실행 문맥(Execution context)
+
+자바스크립트의 콜 스택에 실행 문맥이 쌓인다. 콜 스택의 제일 위에 위치하는 실행 문맥이 현재 실행되고 있는 실행 문맥이 되는 것이다.
+
+<img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSS5SRX3M4tfzpG7XksGEDeEc6gncvEvjDFDXORrYNaiC4ztCyf1OHTU3g" width="40%">
+
+함수 실행 시 메모리에 함수만의 독립적인 실행공간이 만들어지고, 이를 context라고 부른다. 이 때 변수와 함수의 scope가 정해진다.
+
+스코프 체이닝
+
+함수 컨텍스트에서 글로벌 컨텍스트에 접근하는 현상
+
+
+클로저
+
+자신이 만들어졌을 떄의 콘텍스트를 기억(스코프 체인)하고 밖으로 나와있는 함수를 클로저 함수라고 한다.
+
+클로저의 특징 : 보안의 이유. 내부 함수는 외부 함수에서 밖에 접근이 불가능하다.
+
+http://chanlee.github.io/2013/12/10/understand-javascript-closure/
+
+
+그 밖의 특징
+
+1. 함수를 실행 할 때 함수 안에는 arguments라는 변수가 자동으로 만들어진다. arguments는 배열 형태로 인자를 저장한다.arguments를 통해 인수를 제어할 수 있다.
+2. 함수도 객체이기 때문에 프로퍼티가 있다. .length, .name ...
+
+func.length는 인수의 개수를 반환한다.
+
+함수 안에 arguments.length는 인수로 전달된 전달 인자의 개수를 나타낸다.
+
+
+연산자
+
+&& : 첫번째 falsy값 또는 마지막 truthy값 반환
+> 1 && 2 && 3 && 4 && 5; // 5
+> 0 && 2 && 3 && 4 && 5; // 0
+
+|| : 첫번째 truthy값 또는 마지막 falsy값 반환
+> 1 || 2 || 3 || 4; // 1
+> 0 || 2 || 3 || 4; // 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
