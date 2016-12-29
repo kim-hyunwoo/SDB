@@ -4,26 +4,26 @@
 
 ### 함수를 만드는 여러가지 방법
 
-\1.생성자 사용
+1\.생성자 사용
 ```javascript
 var func = new Function('value', 'return result');
 ```
 
-\2.리터럴 방식
+2\.리터럴 방식
 ```javascript
 function func(value) {
   return result;
 }
 ```
 
-\3.익명함수
+3\.익명함수
 ```javascript
 var func = function(value) {
   return result;
 }
 ```
 
-\4.즉시 실행 함수(IIFE:Immediately Invoked Function Expressions)
+4\.즉시 실행 함수(IIFE:Immediately Invoked Function Expressions)
 ```javascript
 (function(value)){
   return result;
@@ -72,7 +72,7 @@ function scopeA(param) {
 3. var 키워드의 생략
 4. 렉시컬 특성
 
-\1. 함수 단위의 유효범위
+1\. 함수 단위의 유효범위
 
 다른 프로그래밍 언어는 유효 범위의 단위가 블록 단위이기 때문에 if문, for문으로 인해 생긴 블록 밖의 범위에서는 그 안에서 선언된 변수를 참조할 수 없다. 하지만 **자바스크립트의 유효 범위는 함수 단위이기 때문에 var a, b, c 모두 같은 유효 범위를 갖는다**. 
 
@@ -97,7 +97,7 @@ scopeTest();
 //b = 0 if문의 블록 밖에서 if문 블록 안의 변수를 참조.
 ```
 
-\2. 변수명 중복
+2\. 변수명 중복
 
 자바스크립트는 변수명이 중복되어도 에러가 나지 않는다. 다만 가장 가까운 범위의 변수를 참조한다.
 ```javascript
@@ -109,7 +109,7 @@ function scopeExam() {
 scopeExam(); //scope = 20
 ```
 
-\3. var 키워드의 생략
+3\. var 키워드의 생략
 
 var 키워드를 생략해도 에러가 발생하지 않지만, **전역 변수로 선언** 된다. 
 
@@ -127,7 +127,7 @@ scopeExam(); //scope = 20
 scopeExam2(); //20 전역변수로 선언된 scope를 참조한다.
 ```
 
-\4. 렉시컬 특성
+4\. 렉시컬 특성
 
 함수 실행 시 유효범위를 함수 실행 환경이 아닌 함수 정의 환경으로 참조하는 특성.
 
@@ -251,10 +251,12 @@ func.length는 인수의 개수를 반환한다.
 
 && : 첫번째 falsy값 또는 마지막 truthy값 반환
 > 1 && 2 && 3 && 4 && 5; // 5
+
 > 0 && 2 && 3 && 4 && 5; // 0
 
 || : 첫번째 truthy값 또는 마지막 falsy값 반환
 > 1 || 2 || 3 || 4; // 1
+
 > 0 || 2 || 3 || 4; // 0
 
 
