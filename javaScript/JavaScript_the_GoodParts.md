@@ -24,4 +24,59 @@ Function.prototype.method = function(name, func) {
 
 나머지는 모두 객체 : 변형 가능한 속성들의 집합
 
+## 객체
+
+객체는 참조 방식으로 전달되며, 결코 복사되지 않는다.
+
+```javascript
+var stooge = {
+  "first-name" : "Jerome",
+  last_name : "Howard"
+}
+
+console.log(stooge["first-name"]);
+console.log(stooge.last_name)
+
+// ||연산자를 사용하여 기본값 지정 가능 
+var middle = stooge.middle_name || "unknown";
+console.log(middle); //unknown
+```
+
+### Prototype
+
+모든 객체는 속성을 상속하는 프로토타입 객체에 연결돼 있다. 객체 리터럴로 생성되는 모든 객체는 자바스크립트의 표준 객체인 Object의 속성인 prototype(Obejct.prototype) 객체에 연결된다.
+
+```javascript
+//Object 객체에 create라는 메소드 추가
+if(typeof Object.create !== 'function') {
+  Object.create = function (o) {
+    var F = function() {};
+    F.prototype = o;
+    return new F();
+  };
+}
+
+var another_stooge = Object.create(stooge);
+
+another_stooge['first-name'] = 'Harry';
+another_stooge.last_name = 'Moses';
+another_stooge.nickname = "Moe";
+
+console.log(another_stooge.nickname); //Moe
+
+stooge.profession = "actor";
+console.log(another_stooge.profession); //actor
+// 프로토타입에 새로운 속성이 추가되면 해당 프로토 타입을
+// 근간으로 하는 객체들에게는 즉각적으로 이 속성이 나타난다.
+```
+
+
+
+
+
+
+
+
+
+
 
