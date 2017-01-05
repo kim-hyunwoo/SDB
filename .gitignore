@@ -1,2 +1,4 @@
 *.ru
 /tmp
+*.sublime-workspace
+*.sublime-project
