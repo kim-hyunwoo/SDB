@@ -297,7 +297,124 @@ default 인수값을 지정할 수도 있다.
 }
 
 .btn-b {
-    @include button(4px) //#000
+    @include button(4px); //#000
 }
 ```
+
+key:value 인자는 순서와 상관없이 전달할 수 있다.
+```scss
+@mixin button($radius, $color: #000) {
+    border-radius: $radius;
+    color: $color;
+}
+.btn-a {
+    @include button($color: #FFF, $radius: 5px);
+}
+```
+
+```scss
+@mixin assemble($bg: #fff, $pad: 10px) {
+  background: $bg;
+  border: 1px solid #ccc;
+  padding: $pad;
+}
+
+.factory {
+  @include assemble;
+}
+.highrise {
+  @include assemble(#797979, 20px);
+}
+```
+
+여러개의 값을 하나의 인자로 전달할 경우 vararg를 사용한다.
+
+```scss
+@mixin button($val...) {
+    -webkit-transition: $val;
+    -moz-transition: $val;
+    transition: $val;
+}
+.btn-a {
+    @include transition(color 0.3s ease-in, background 0.5s ease-out);
+}
+```
+
+콤마로 구분해서 여러개의 인자를 전달할 수도 있다.
+
+```scss
+@mixin button($radius, $color) {
+    border-radius: $radius;
+    color: $color;
+}
+$properties: 4px, #000;
+
+.btn-a {
+    @include button($properties...);
+}
+```
+
+```scss
+@mixin highlight($color, $side) {
+    border-#{$side}-color: $color;
+}
+```
+
+## Extend
+
+```css
+.btn-a,
+.btn-b {
+    background: #777;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+.btn-b {
+    background: #ff0;
+}
+```
+
+```scss
+.btn-a {
+    background: #777;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+.btn-b {
+    @extend .btn-a;
+    background: #ff0;
+}
+```
+
+Since .btn-b extends .btn-a, every instance that modifies .btn-a also modifies .btn-b.
+we can counteract with placeholder selectors.
+
+Allways check the CSS output of your Sass before using it on a live site.
+
+## Placeholder selectors %
+
+```scss
+%btn {
+    background: #777;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+.btn-a {
+    @extend %btn;
+}
+.btn-b {
+    @extend $btn;
+    background: #ff0;
+}
+.sidebar .btn-a {
+    text-transform: lowercase;
+}
+```
+
+
+
+
 
