@@ -17,7 +17,7 @@
 
 
 링크에 헤딩 달기  
-[Install](### 제목 3번)
+[Install](### 제목3번)
 
 
 
@@ -96,4 +96,4 @@ you can create a new paragraph by leaving a blank line between lines of text.
 
 
 
-### 제목 3번
+### 제목3번
