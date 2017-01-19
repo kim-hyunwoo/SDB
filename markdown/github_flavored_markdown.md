@@ -1,23 +1,35 @@
 # GitHub Flavored Markdown
 
-### Basic Writing and Formatting Syntax
+## Basic Writing and Formatting Syntax
 
-##### Headings
+### Stylings
+```markdown
+1. Bold : **This is bold text**, __Bold__
+2. Italic : *This is italicized*, _italic_
+3. 취소선: ~~This was mistaken text~~
+4. Bold and italic : **This is _italic_ and Bold**
+5. underline : <U>This is Underline</U>
+```
 
-```
-# 의 개수로 제목의 크기를 정한다.
-# 제일큰거
-## 그 다음 큰거
-###### 제일 작은거
-```
+1. **Bold Text**
+2. *Italic Text*
+3. ~~취소선~~
 
-##### Stylings
-```
-Bold : **This is bold text**, __Bold__
-Italic : *This is italicized*, _italic_
-취소선: ~~This was mistaken text~~
-Bold and italic : **This is _italic_ and Bold**
-```
+
+링크에 헤딩 달기  
+[Install](### 제목 3번)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##### Quote
 > hey this is quote
@@ -55,7 +67,7 @@ This is Link : [GitHub](https://github.com)
   1. sugar
   2. brown
      * make the heading bigger
-    
+
 ```
 - A
 - B
@@ -75,12 +87,13 @@ you can create a new paragraph by leaving a blank line between lines of text.
 \!\[ ]( )
 ![A representation of Octdrey Catburn](http://octodex.github.com/images/octdrey-catburn.jpg)
 
+##### 문장 끝에 스페이스 두 번 치고 줄바꿈 하면 줄바꿈이 적용됨.
+
+
 ##### reference
 [Markdown Tutorial](http://www.markdowntutorial.com/)
 
 
 
 
-
-
-
+### 인스톨

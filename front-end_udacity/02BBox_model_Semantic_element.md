@@ -1,11 +1,5 @@
 # Box model and Semantic Element
 
-## Boxes EveryWhere
-
-[bl.ocks.org](http://bl.ocks.org/mbostock/raw/4062006/)
-
-위 개발자 도구로 살펴보면 모든 이미지가 박스로 이루어진 것을 알 수 있다.
-
 ## block vs inline
 
 [Mozilla](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)

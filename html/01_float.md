@@ -2,7 +2,7 @@
 
 normal flow - float - position
 
-float시 부모가 차지하는 영역이 없어진다.
+float시 부모에 차지하는 영역이 없어진다.
 
 부모요소에 overflow: hidden;으로 해결
 
