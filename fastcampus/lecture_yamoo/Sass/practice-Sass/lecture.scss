@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.4rem;
+  color: #333333;
+  background: #ffffff;
+}
+
+body *,
+body *::before,
+body *::after {
+  content: '';
+  box-sizing: border-box;
+}
+
+/* node-sass lecture.scss lecture.css */
